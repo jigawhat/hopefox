@@ -94,10 +94,7 @@
     .bot { background:rgba(159,140,255,.12); border:1px solid rgba(159,140,255,.2); align-self:flex-start; }
     .user { background:rgba(124,247,212,.12); border:1px solid rgba(124,247,212,.18); align-self:flex-end; }
     .assistant-side { display:flex; flex-direction:column; gap:12px; }
-    .fox-flare { position:absolute; right:-18px; bottom:-24px; width:210px; height:210px; opacity:.95; pointer-events:none; filter: drop-shadow(0 12px 28px rgba(0,0,0,.35)); }
-    .hero-kicker { display:flex; align-items:center; gap:14px; margin-top:20px; padding:12px 14px; border-radius:18px; background:rgba(255,255,255,.04); border:1px solid var(--line); width:max-content; max-width:100%; }
-    .hero-kicker img { width:42px; height:42px; border-radius:14px; }
-    .chat-tools, .mood-grid { display:grid; gap:10px; }
+        .chat-tools, .mood-grid { display:grid; gap:10px; }
     .chat-tools { grid-template-columns:repeat(2,1fr); }
     .mood-grid { grid-template-columns:repeat(2,1fr); }
     .tool-btn { border:none; cursor:pointer; border-radius:16px; padding:11px 12px; background:rgba(255,255,255,.05); color:var(--text); border:1px solid var(--line); font-weight:800; text-align:left; }
@@ -151,11 +148,6 @@
           <a class="btn btn-primary" href="#urgent">Get urgent help</a>
           <a class="btn btn-secondary" href="#assistant">Talk to the companion</a>
         </div>
-        <div class="hero-kicker">
-          <img src="hopefox-logo.png" alt="HopeFox fox of hope logo" />
-          <div><strong>Fox of Hope</strong><br><span style="color:var(--muted)">A small symbol of warmth, courage, and finding a way through the dark.</span></div>
-        </div>
-        <img class="fox-flare" src="hopefox-logo.png" alt="" aria-hidden="true" />
         <div class="metrics">
           <div class="metric"><strong>113</strong><span>UK counties & local areas covered</span></div>
           <div class="metric"><strong>10+</strong><span>national services & hubs</span></div>
@@ -305,10 +297,11 @@
     <section class="section" id="stories">
       <div class="section-header">
         <div>
-          <h2>Stories of survival and hope</h2>
-          <p>These are fictionalised composite stories created for inspiration. They are not medical case studies, and they are written to reflect common themes in recovery: telling the truth, asking for help, building safety, and finding community.</p>
+          <h2>Real recovery stories and peer communities</h2>
+          <p>This section now links to real public posts, videos, story accounts, and peer communities. Each card includes a source link. Some entries are first-person recovery stories; some are public communities where people share lived experience. TikTok is not included here because it was not accessible to verify during editing.</p>
         </div>
       </div>
+      <div class="disclaimer" style="margin-bottom:14px">TikTok entries are not included here because TikTok pages were not accessible from the browser tools used to verify public links.</div>
       <div class="story-grid" id="storyGrid"></div>
     </section>
 
@@ -365,11 +358,74 @@
       quoteGrid.appendChild(el);
     });
 
+    const realStories = [
+      {
+        title:'Positive stories of hope',
+        by:'Reddit · r/MentalHealthUK',
+        story:'A UK subreddit discussion asking for hopeful experiences with community mental health care, with replies about getting back to university, support from GP-linked mental health staff, and finding help through local Mind groups.',
+        link:'https://www.reddit.com/r/MentalHealthUK/comments/1kre00j/positive_stories_of_hope/'
+      },
+      {
+        title:'Need some hope',
+        by:'Reddit · r/MentalHealthUK',
+        story:'A UK discussion thread where a commenter shares a personal account of being sectioned, slowly rebuilding, and seeing recovery as possible even after a very difficult period.',
+        link:'https://www.reddit.com/r/MentalHealthUK/comments/1dy2yum/need_some_hope/'
+      },
+      {
+        title:'I’ve got my life back',
+        by:'Reddit · r/MentalHealthUK',
+        story:'A UK uplifting post from someone describing life after repeated hospital stays, working hard on recovery, and then being offered a university place to study psychotherapy and counselling.',
+        link:'https://www.reddit.com/r/MentalHealthUK/comments/1lujyt4/ive_got_my_life_back/'
+      },
+      {
+        title:'Ryan shares his lived experience with psychosis',
+        by:'YouTube · Somerset NHS Foundation Trust',
+        story:'A UK NHS video in which a peer support worker talks openly about psychosis, depression, anxiety, and what helped him move into recovery and peer support work.',
+        link:'https://www.youtube.com/watch?v=OvW8bJN0WX4'
+      },
+      {
+        title:'Paul’s story',
+        by:'YouTube · Combined Healthcare NHS Trust',
+        story:'A UK NHS recovery story focused on using mental health services, rebuilding stability, and reflecting on what support looked like over time.',
+        link:'https://www.youtube.com/watch?v=EA_j6Oe3S9k'
+      },
+      {
+        title:'Rob’s story',
+        by:'YouTube · Op COURAGE / NHS veterans mental health service',
+        story:'A UK veterans’ mental health recovery video about getting support, feeling empowered again, and making progress through specialist help.',
+        link:'https://www.youtube.com/watch?v=FxbyzHWC6WE'
+      },
+      {
+        title:'Jenny’s recovery story',
+        by:'Instagram · HIOWH Recovery College',
+        story:'A public NHS-linked Instagram post saying that after years of struggling with mental health, Jenny found support through the Recovery College and WRAP tools.',
+        link:'https://www.instagram.com/p/DWV6JU8FfF3/'
+      },
+      {
+        title:'Lisa’s recovery story',
+        by:'Instagram · NHS Talking Therapies / Stockport Living Well service',
+        story:'A public NHS-linked Instagram post saying Lisa previously had no hope and could not see a future, then shares a recovery story after support from Stockport Living Well service.',
+        link:'https://www.instagram.com/p/DTNPco8jvTE/'
+      },
+      {
+        title:'Penumbra recovery story post',
+        by:'X · Penumbra Mental Health (Scotland)',
+        story:'A public UK mental health charity post reflecting on writing a personal recovery story and recognising how far the person had come.',
+        link:'https://x.com/penumbra_scot/status/1808050224830771465'
+      },
+      {
+        title:'Mental Health And Wellbeing Support UK Only',
+        by:'Facebook group · UK peer support',
+        story:'A public UK Facebook peer-support group where members share moods, feelings, coping ideas, and lived experience. This is a community resource rather than a single recovery post.',
+        link:'https://www.facebook.com/groups/656771666560006/'
+      }
+    ];
+
     const storyGrid = document.getElementById('storyGrid');
-    data.stories.forEach(s => {
+    realStories.forEach(s => {
       const el = document.createElement('article');
       el.className = 'card';
-      el.innerHTML = `<h3>${s.title}</h3><p><strong>${s.name}</strong></p><p>${s.story}</p>`;
+      el.innerHTML = `<h3>${s.title}</h3><p><strong>${s.by}</strong></p><p>${s.story}</p><p><a href="${s.link}" target="_blank" rel="noopener">Open source ↗</a></p>`;
       storyGrid.appendChild(el);
     });
 
@@ -551,8 +607,8 @@
         return `Here’s something to keep: <strong>“${q.text}”</strong><br><br>${randomCheer} One gentle thing you can do in the next ten minutes is drink some water, step into fresh air, or message one safe person.`;
       }
       if (/(story|survivor|survival)/.test(t)) {
-        const s = randomItem(data.stories);
-        return `<strong>${s.name} — ${s.title}</strong><br>${s.story}<br><br>${randomCheer}`;
+        const s = randomItem(realStories);
+        return `<strong>${s.by} — ${s.title}</strong><br>${s.story}<br><br><a href="${s.link}" target="_blank" rel="noopener">Open source ↗</a><br><br>${randomCheer}`;
       }
       if (area) {
         return `I found your area: <strong>${area.name}</strong>.<br><br><strong>Urgent route:</strong> ${area.urgent}<br><strong>Best pathway:</strong> ${area.localPathway}<br><br>${area.tips.map(x => '• ' + x).join('<br>')}<br><br>${randomCheer}`;
@@ -581,8 +637,8 @@
       addBubble(`Here’s a fresh quote for you: <strong>“${q.text}”</strong>`, 'bot');
     });
     storyBoostBtn.addEventListener('click', () => {
-      const s = randomItem(data.stories);
-      addBubble(`<strong>${s.name} — ${s.title}</strong><br>${s.story}`, 'bot');
+      const s = randomItem(realStories);
+      addBubble(`<strong>${s.by} — ${s.title}</strong><br>${s.story}<br><a href="${s.link}" target="_blank" rel="noopener">Open source ↗</a>`, 'bot');
     });
     groundingBtn.addEventListener('click', () => sendMessage('I’m anxious and need grounding'));
     localHelpBtn.addEventListener('click', () => sendMessage('Help me find support in Kent'));
