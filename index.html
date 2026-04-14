@@ -89,35 +89,15 @@
     .links-row { display:flex; flex-wrap:wrap; gap:10px; margin-top:10px; }
     .chip-link { text-decoration:none; color:var(--text); padding:9px 12px; border-radius:999px; background:rgba(255,255,255,.05); border:1px solid var(--line); font-size:.92rem; }
     .assistant-wrap { display:grid; grid-template-columns:1fr 330px; gap:16px; }
-    .mindwell-chat { display:flex; flex-direction:column; height:640px; padding:0; overflow:hidden; }
-    .mindwell-chat-head { display:flex; align-items:center; justify-content:space-between; gap:16px; padding:20px 22px; border-bottom:1px solid var(--line); background:rgba(255,255,255,.03); }
-    .mindwell-identity { display:flex; align-items:center; gap:12px; }
-    .mindwell-avatar { width:40px; height:40px; border-radius:999px; display:grid; place-items:center; background:linear-gradient(135deg, rgba(124,247,212,.18), rgba(159,140,255,.24)); border:1px solid rgba(255,255,255,.12); font-size:1.1rem; }
-    .mindwell-title strong { display:block; }
-    .mindwell-title span { display:block; color:var(--muted); font-size:.92rem; margin-top:2px; }
-    .chat-status { font-size:.86rem; padding:8px 12px; border-radius:999px; background:rgba(124,247,212,.08); color:var(--accent); border:1px solid rgba(124,247,212,.18); white-space:nowrap; }
-    .chat-log { flex:1; overflow:auto; padding:22px; display:flex; flex-direction:column; gap:14px; background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.01)); }
-    .chat-row { display:flex; gap:12px; align-items:flex-start; }
-    .chat-row.user-row { justify-content:flex-end; }
-    .chat-avatar { width:34px; height:34px; border-radius:999px; display:grid; place-items:center; flex:0 0 34px; margin-top:2px; border:1px solid rgba(255,255,255,.10); }
-    .bot-avatar { background:rgba(159,140,255,.14); color:#e3ddff; }
-    .user-avatar { background:rgba(124,247,212,.14); color:#d7fff4; }
-    .bubble { max-width:min(78%, 680px); padding:13px 15px; border-radius:18px; line-height:1.68; white-space:pre-wrap; word-break:break-word; }
-    .bot { background:rgba(255,255,255,.06); border:1px solid var(--line); color:var(--text); border-top-left-radius:8px; }
-    .user { background:linear-gradient(135deg, rgba(124,247,212,.18), rgba(124,247,212,.1)); border:1px solid rgba(124,247,212,.18); color:var(--text); border-top-right-radius:8px; }
-    .message-meta { display:block; margin-top:7px; color:var(--muted); font-size:.8rem; }
-    .typing-bubble { display:inline-flex; gap:6px; align-items:center; min-width:64px; }
-    .typing-bubble span { width:7px; height:7px; border-radius:999px; background:rgba(255,255,255,.62); display:block; animation: hopefox-bounce 1.1s infinite ease-in-out; }
-    .typing-bubble span:nth-child(2) { animation-delay:.14s; }
-    .typing-bubble span:nth-child(3) { animation-delay:.28s; }
-    @keyframes hopefox-bounce { 0%,80%,100% { transform:scale(.7); opacity:.55; } 40% { transform:scale(1); opacity:1; } }
-    .chat-composer { border-top:1px solid var(--line); padding:16px; background:rgba(255,255,255,.03); }
-    .composer-shell { display:flex; gap:12px; align-items:flex-end; }
-    .composer-shell textarea { min-height:52px; max-height:128px; resize:vertical; }
-    .send-icon-btn { width:52px; height:52px; border-radius:16px; padding:0; justify-content:center; font-size:1.12rem; }
-     .assistant-side { display:flex; flex-direction:column; gap:12px; }
-    .composer-actions { display:flex; gap:12px; flex-wrap:wrap; }
-        .chat-tools, .mood-grid { display:grid; gap:10px; }
+    .chat-log { min-height:420px; max-height:480px; overflow:auto; display:flex; flex-direction:column; gap:12px; padding-right:4px; }
+    .bubble { max-width:92%; padding:14px 16px; border-radius:20px; line-height:1.65; }
+    .bot { background:rgba(159,140,255,.12); border:1px solid rgba(159,140,255,.2); align-self:flex-start; }
+    .user { background:rgba(124,247,212,.12); border:1px solid rgba(124,247,212,.18); align-self:flex-end; }
+    .assistant-side { display:flex; flex-direction:column; gap:12px; }
+    .fox-flare { position:absolute; right:-18px; bottom:-24px; width:210px; height:210px; opacity:.95; pointer-events:none; filter: drop-shadow(0 12px 28px rgba(0,0,0,.35)); }
+    .hero-kicker { display:flex; align-items:center; gap:14px; margin-top:20px; padding:12px 14px; border-radius:18px; background:rgba(255,255,255,.04); border:1px solid var(--line); width:max-content; max-width:100%; }
+    .hero-kicker img { width:42px; height:42px; border-radius:14px; }
+    .chat-tools, .mood-grid { display:grid; gap:10px; }
     .chat-tools { grid-template-columns:repeat(2,1fr); }
     .mood-grid { grid-template-columns:repeat(2,1fr); }
     .tool-btn { border:none; cursor:pointer; border-radius:16px; padding:11px 12px; background:rgba(255,255,255,.05); color:var(--text); border:1px solid var(--line); font-weight:800; text-align:left; }
@@ -171,6 +151,11 @@
           <a class="btn btn-primary" href="#urgent">Get urgent help</a>
           <a class="btn btn-secondary" href="#assistant">Talk to the companion</a>
         </div>
+        <div class="hero-kicker">
+          <img src="hopefox-logo.png" alt="HopeFox fox of hope logo" />
+          <div><strong>Fox of Hope</strong><br><span style="color:var(--muted)">A small symbol of warmth, courage, and finding a way through the dark.</span></div>
+        </div>
+        <img class="fox-flare" src="hopefox-logo.png" alt="" aria-hidden="true" />
         <div class="metrics">
           <div class="metric"><strong>113</strong><span>UK counties & local areas covered</span></div>
           <div class="metric"><strong>10+</strong><span>national services & hubs</span></div>
@@ -244,31 +229,18 @@
     <section class="section" id="assistant">
       <div class="section-header">
         <div>
-          <h2>Psychology companion</h2>
-          <p>This is now a live API-powered psychology companion designed to listen like a steady friend, respond in more depth, remember context across the chat, and avoid repetitive replies. It blends reflective listening, gentle pattern-spotting, grounding, practical next steps, and UK signposting while staying clear that it is not emergency care.</p>
+          <h2>Support companion</h2>
+          <p>This on-page companion is an AI-style signposting assistant. It is designed for encouragement, grounding, hopeful quotes, survivor-story boosts, and routing people toward the right service fast. It is not a crisis responder and should never replace emergency support.</p>
         </div>
       </div>
       <div class="assistant-wrap">
-        <div class="card mindwell-chat">
-          <div class="mindwell-chat-head">
-            <div class="mindwell-identity">
-              <div class="mindwell-avatar">✦</div>
-              <div class="mindwell-title">
-                <strong>HopeFox Companion</strong>
-                <span>I’m here with you. Take your time.</span>
-              </div>
-            </div>
-            <div class="chat-status" id="chatStatus">Ready</div>
-          </div>
+        <div class="card">
           <div class="chat-log" id="chatLog"></div>
-          <div class="chat-composer">
-            <div class="composer-shell">
-              <textarea id="userMessage" rows="2" placeholder="Type what’s on your mind…"></textarea>
-              <button class="btn btn-primary send-icon-btn" id="sendBtn" aria-label="Send message">➤</button>
-            </div>
-            <div class="composer-actions" style="margin-top:12px">
-              <button class="btn btn-secondary" id="clearBtn">New chat</button>
-            </div>
+          <div style="height:12px"></div>
+          <textarea id="userMessage" rows="3" placeholder="Try: I’m in Surrey and feeling overwhelmed…"></textarea>
+          <div class="hero-actions" style="margin-top:12px">
+            <button class="btn btn-primary" id="sendBtn">Send</button>
+            <button class="btn btn-secondary" id="clearBtn">Clear chat</button>
           </div>
         </div>
         <aside class="card assistant-side">
@@ -285,7 +257,7 @@
             <button data-prompt="I’m burnt out from work and need help">Burnout</button>
             <button data-prompt="Help me find support in Kent">Find support in Kent</button>
             <button data-prompt="Give me a hopeful quote">Hopeful quote</button>
-            <button data-prompt="Tell me a recovery story from the site">Recovery story</button>
+            <button data-prompt="Tell me a survivor story">Survivor story</button>
           </div>
           <div class="quote-spotlight">
             <strong>Quote spotlight</strong>
@@ -297,30 +269,24 @@
             <button class="tool-btn" id="storyBoostBtn">Story boost</button>
             <button class="tool-btn" id="groundingBtn">Grounding reset</button>
             <button class="tool-btn" id="localHelpBtn">Local help steps</button>
-            <button class="tool-btn" id="patternsBtn">Thinking patterns</button>
           </div>
           <div class="mini-card">
             <strong>Support modes</strong>
-            <small>Tap a mode and the companion will shift its emphasis toward nervous-system calming, hope and encouragement, deeper reflection, practical planning, or UK/local signposting.</small>
+            <small>Tap a mode and the companion will guide its reply toward grounding, hope, local signposting, or practical next steps.</small>
             <div class="mood-grid" style="margin-top:12px">
               <button class="tool-btn" data-mode="calm">Calm me</button>
               <button class="tool-btn" data-mode="hope">Give me hope</button>
-              <button class="tool-btn" data-mode="reflect">Go deeper with me</button>
               <button class="tool-btn" data-mode="plan">Help me plan</button>
               <button class="tool-btn" data-mode="local">Find local routes</button>
             </div>
           </div>
           <div class="mini-card">
-            <strong>Companion engine</strong>
-            <small>Built to respond more like a present, thoughtful human: it remembers what you have said, varies its style, asks better follow-up questions, and gently notices patterns like catastrophising, all-or-nothing thinking, self-blame, or harsh inner pressure when they show up.</small>
-          </div>
-          <div class="mini-card">
             <strong>What it can do</strong>
-            <small>Listen with warmth, reflect back what it hears, notice patterns without sounding robotic, offer grounding and evidence-informed coping ideas, support small next steps, share hopeful quotes, and point to UK help when needed.</small>
+            <small>Offer grounding steps, respond warmly, surface hopeful quotes and survivor stories, suggest which national service fits best, and point you toward the county finder and local search routes.</small>
           </div>
           <div class="mini-card">
             <strong>What it cannot do</strong>
-            <small>Provide diagnosis, ongoing therapy, emergency response, or replace a clinician, GP, helpline, or crisis team.</small>
+            <small>Provide diagnosis, therapy, emergency response, or replace a clinician, helpline, GP, or crisis line.</small>
           </div>
         </aside>
       </div>
@@ -339,11 +305,10 @@
     <section class="section" id="stories">
       <div class="section-header">
         <div>
-          <h2>Real recovery stories and peer communities</h2>
-          <p>This section now links to real public posts, videos, story accounts, and peer communities. Each card includes a source link. Some entries are first-person recovery stories; some are public communities where people share lived experience. TikTok is not included here because it was not accessible to verify during editing.</p>
+          <h2>Stories of survival and hope</h2>
+          <p>These are fictionalised composite stories created for inspiration. They are not medical case studies, and they are written to reflect common themes in recovery: telling the truth, asking for help, building safety, and finding community.</p>
         </div>
       </div>
-      <div class="disclaimer" style="margin-bottom:14px">TikTok entries are not included here because TikTok pages were not accessible from the browser tools used to verify public links.</div>
       <div class="story-grid" id="storyGrid"></div>
     </section>
 
@@ -400,74 +365,11 @@
       quoteGrid.appendChild(el);
     });
 
-    const realStories = [
-      {
-        title:'Positive stories of hope',
-        by:'Reddit · r/MentalHealthUK',
-        story:'A UK subreddit discussion asking for hopeful experiences with community mental health care, with replies about getting back to university, support from GP-linked mental health staff, and finding help through local Mind groups.',
-        link:'https://www.reddit.com/r/MentalHealthUK/comments/1kre00j/positive_stories_of_hope/'
-      },
-      {
-        title:'Need some hope',
-        by:'Reddit · r/MentalHealthUK',
-        story:'A UK discussion thread where a commenter shares a personal account of being sectioned, slowly rebuilding, and seeing recovery as possible even after a very difficult period.',
-        link:'https://www.reddit.com/r/MentalHealthUK/comments/1dy2yum/need_some_hope/'
-      },
-      {
-        title:'I’ve got my life back',
-        by:'Reddit · r/MentalHealthUK',
-        story:'A UK uplifting post from someone describing life after repeated hospital stays, working hard on recovery, and then being offered a university place to study psychotherapy and counselling.',
-        link:'https://www.reddit.com/r/MentalHealthUK/comments/1lujyt4/ive_got_my_life_back/'
-      },
-      {
-        title:'Ryan shares his lived experience with psychosis',
-        by:'YouTube · Somerset NHS Foundation Trust',
-        story:'A UK NHS video in which a peer support worker talks openly about psychosis, depression, anxiety, and what helped him move into recovery and peer support work.',
-        link:'https://www.youtube.com/watch?v=OvW8bJN0WX4'
-      },
-      {
-        title:'Paul’s story',
-        by:'YouTube · Combined Healthcare NHS Trust',
-        story:'A UK NHS recovery story focused on using mental health services, rebuilding stability, and reflecting on what support looked like over time.',
-        link:'https://www.youtube.com/watch?v=EA_j6Oe3S9k'
-      },
-      {
-        title:'Rob’s story',
-        by:'YouTube · Op COURAGE / NHS veterans mental health service',
-        story:'A UK veterans’ mental health recovery video about getting support, feeling empowered again, and making progress through specialist help.',
-        link:'https://www.youtube.com/watch?v=FxbyzHWC6WE'
-      },
-      {
-        title:'Jenny’s recovery story',
-        by:'Instagram · HIOWH Recovery College',
-        story:'A public NHS-linked Instagram post saying that after years of struggling with mental health, Jenny found support through the Recovery College and WRAP tools.',
-        link:'https://www.instagram.com/p/DWV6JU8FfF3/'
-      },
-      {
-        title:'Lisa’s recovery story',
-        by:'Instagram · NHS Talking Therapies / Stockport Living Well service',
-        story:'A public NHS-linked Instagram post saying Lisa previously had no hope and could not see a future, then shares a recovery story after support from Stockport Living Well service.',
-        link:'https://www.instagram.com/p/DTNPco8jvTE/'
-      },
-      {
-        title:'Penumbra recovery story post',
-        by:'X · Penumbra Mental Health (Scotland)',
-        story:'A public UK mental health charity post reflecting on writing a personal recovery story and recognising how far the person had come.',
-        link:'https://x.com/penumbra_scot/status/1808050224830771465'
-      },
-      {
-        title:'Mental Health And Wellbeing Support UK Only',
-        by:'Facebook group · UK peer support',
-        story:'A public UK Facebook peer-support group where members share moods, feelings, coping ideas, and lived experience. This is a community resource rather than a single recovery post.',
-        link:'https://www.facebook.com/groups/656771666560006/'
-      }
-    ];
-
     const storyGrid = document.getElementById('storyGrid');
-    realStories.forEach(s => {
+    data.stories.forEach(s => {
       const el = document.createElement('article');
       el.className = 'card';
-      el.innerHTML = `<h3>${s.title}</h3><p><strong>${s.by}</strong></p><p>${s.story}</p><p><a href="${s.link}" target="_blank" rel="noopener">Open source ↗</a></p>`;
+      el.innerHTML = `<h3>${s.title}</h3><p><strong>${s.name}</strong></p><p>${s.story}</p>`;
       storyGrid.appendChild(el);
     });
 
@@ -546,9 +448,158 @@
     searchInput.addEventListener('input', renderAreas);
     nationFilter.addEventListener('change', renderAreas);
 
+    const chatLog = document.getElementById('chatLog');
     const userMessage = document.getElementById('userMessage');
     const sendBtn = document.getElementById('sendBtn');
     const clearBtn = document.getElementById('clearBtn');
+    const quoteSpotlight = document.getElementById('quoteSpotlight');
+    const quoteByline = document.getElementById('quoteByline');
+    const newQuoteBtn = document.getElementById('newQuoteBtn');
+    const storyBoostBtn = document.getElementById('storyBoostBtn');
+    const groundingBtn = document.getElementById('groundingBtn');
+    const localHelpBtn = document.getElementById('localHelpBtn');
+
+    function addBubble(text, who='bot') {
+      const div = document.createElement('div');
+      div.className = `bubble ${who}`;
+      div.innerHTML = text;
+      chatLog.appendChild(div);
+      chatLog.scrollTop = chatLog.scrollHeight;
+    }
+
+    function randomItem(arr) {
+      return arr[Math.floor(Math.random() * arr.length)];
+    }
+
+    function showRandomQuote() {
+      const q = randomItem(data.quotes);
+      quoteSpotlight.textContent = `“${q.text}”`;
+      quoteByline.textContent = q.by;
+      return q;
+    }
+
+    function intro() {
+      chatLog.innerHTML = '';
+      addBubble('Hi, I’m the HopeFox companion. I can help you slow things down, offer a hopeful quote or survivor story, suggest the most relevant support, and point you to national or local options. <strong>If anyone is in immediate danger, call 999 now.</strong>');
+      const q = showRandomQuote();
+      addBubble(`Today’s quote is <strong>“${q.text}”</strong>. Tell me how you’re feeling, what part of the UK you’re in, and whether you need urgent help, someone to talk to tonight, therapy, youth support, a grounding reset, or just a lift.`);
+    }
+    intro();
+
+    function findAreaName(text) {
+      const lower = text.toLowerCase();
+      const match = data.areas.find(a => lower.includes(a.name.toLowerCase()));
+      return match || null;
+    }
+
+    function areaSummary(area) {
+      if (!area) return '';
+      return `<br><br><strong>${area.name}</strong><br><strong>Urgent route:</strong> ${area.urgent}<br><strong>Best pathway:</strong> ${area.localPathway}`;
+    }
+
+    function respond(msg) {
+      const t = msg.toLowerCase();
+      const area = findAreaName(msg);
+      const cheer = [
+        'You do not have to carry this alone tonight.',
+        'The fact you reached out here matters.',
+        'You are not weak for needing support — you are human.',
+        'Small steps count, especially on heavy days.',
+        'You deserve care before things become unbearable.',
+        'You are still worthy of tenderness on your hardest day.',
+        'Getting through the next ten minutes counts.',
+        'Hope can be tiny and still be real.'
+      ];
+      const practical = [
+        'Drink a glass of water.',
+        'Unclench your jaw and lower your shoulders.',
+        'Put both feet on the floor and notice the ground holding you.',
+        'Message one safe person with one honest sentence.',
+        'Open the urgent help section if tonight feels unsafe.'
+      ];
+      const randomCheer = randomItem(cheer);
+      const randomPractical = randomItem(practical);
+
+      if (/(unsafe|suicid|kill myself|end my life|overdose|can’t go on|can't go on|harm myself|self harm|self-harm)/.test(t)) {
+        let nationLine = 'If you are in the UK and there is immediate danger, call <strong>999</strong> now. You can also call <strong>Samaritans 116 123</strong> or text <strong>SHOUT to 85258</strong>.';
+        if (area) nationLine += ` Because you mentioned <strong>${area.name}</strong>, your local urgent route is: ${area.urgent}`;
+        return `${nationLine}<br><br>${randomCheer} Stay with another person if you can, move away from anything you could use to hurt yourself, and use the urgent help section at the top of this page right now.`;
+      }
+      if (/(anxious|panic|panicking|overwhelmed|can.t breathe|cant breathe|can't breathe|grounding)/.test(t)) {
+        return `I’m sorry it feels this intense. Try this with me: name <strong>5</strong> things you can see, <strong>4</strong> you can feel, <strong>3</strong> you can hear, <strong>2</strong> you can smell, and <strong>1</strong> you can taste. Loosen your jaw. Drop your shoulders. Make your exhale a little longer than your inhale.<br><br>${randomCheer} ${randomPractical}${areaSummary(area)}`;
+      }
+      if (/(young|teen|under 25|child|son|daughter|student)/.test(t)) {
+        return `For a young person, try <strong>PAPYRUS HOPELINE247</strong> for suicide-prevention support, <strong>Shout 85258</strong> for text support, and <strong>The Mix</strong> for under-25s. If there’s immediate risk, use <strong>999</strong>.${area ? `<br><br>For ${area.name}, start locally with: ${area.localPathway}` : ''}<br><br>${randomCheer}`;
+      }
+      if (/(talk tonight|tonight|someone to talk|lonely|need to talk)/.test(t)) {
+        return `For someone to talk to tonight, <strong>Samaritans 116 123</strong> is a strong first option, and <strong>Shout 85258</strong> is there if texting feels easier. In Scotland, <strong>Breathing Space</strong> can also help; in Northern Ireland, <strong>Lifeline</strong> is important for crisis distress.<br><br>${randomCheer}`;
+      }
+      if (/(therapy|counselling|counseling|gp|doctor|ongoing help)/.test(t)) {
+        return `For ongoing support, speak to your <strong>GP</strong> and look for self-referral options. In England, many areas offer <strong>NHS Talking Therapies</strong> self-referral for anxiety and depression. Use the county finder to open local pathways.${area ? `<br><br>Your area card for <strong>${area.name}</strong> can help: ${area.localPathway}` : ''}<br><br>${randomCheer}`;
+      }
+      if (/(grief|bereav|loss|lost someone)/.test(t)) {
+        return `Grief can hit the body and mind hard. Try to lower the bar for today: one drink, one meal, one message, one breath at a time. The county finder can help you look for bereavement support locally, and <strong>Samaritans 116 123</strong> is there if you need a human voice tonight.<br><br>${randomCheer}${areaSummary(area)}`;
+      }
+      if (/(sleep|insomnia|awake all night)/.test(t)) {
+        return `When sleep is fractured, everything can feel louder. Try dimming lights, putting your phone slightly farther away, and doing one slow grounding exercise instead of trying to force sleep. If low mood or anxiety is lasting, use your GP or therapy route for ongoing support.${areaSummary(area)}<br><br>${randomCheer}`;
+      }
+      if (/(burnout|burnt out|exhausted|work stress)/.test(t)) {
+        return `Burnout often needs both rest and practical change. Ask yourself what can be reduced this week, who can share the load, and whether you need a GP appointment or therapy referral. You do not have to earn support by collapsing first.${areaSummary(area)}<br><br>${randomCheer}`;
+      }
+      if (/(cheer me up|hopeful|quote|encourage)/.test(t)) {
+        const q = showRandomQuote();
+        return `Here’s something to keep: <strong>“${q.text}”</strong><br><br>${randomCheer} One gentle thing you can do in the next ten minutes is drink some water, step into fresh air, or message one safe person.`;
+      }
+      if (/(story|survivor|survival)/.test(t)) {
+        const s = randomItem(data.stories);
+        return `<strong>${s.name} — ${s.title}</strong><br>${s.story}<br><br>${randomCheer}`;
+      }
+      if (area) {
+        return `I found your area: <strong>${area.name}</strong>.<br><br><strong>Urgent route:</strong> ${area.urgent}<br><strong>Best pathway:</strong> ${area.localPathway}<br><br>${area.tips.map(x => '• ' + x).join('<br>')}<br><br>${randomCheer}`;
+      }
+      return `Thank you for saying that. Based on what you wrote, I’d start with the <strong>national services</strong> section and the <strong>county finder</strong> above. If it feels urgent, use the crisis route for your nation. If you type your county or area, I can point you in the right direction. You can also ask me for a grounding reset, a hopeful quote, a survivor story, grief support, sleep support, or therapy options.<br><br>${randomCheer}`;
+    }
+
+    function sendMessage(text) {
+      const value = (text ?? userMessage.value).trim();
+      if (!value) return;
+      addBubble(value, 'user');
+      addBubble(respond(value), 'bot');
+      userMessage.value = '';
+    }
+
+    sendBtn.addEventListener('click', () => sendMessage());
+    userMessage.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' && !e.shiftKey) {
+        e.preventDefault();
+        sendMessage();
+      }
+    });
+    clearBtn.addEventListener('click', intro);
+    newQuoteBtn.addEventListener('click', () => {
+      const q = showRandomQuote();
+      addBubble(`Here’s a fresh quote for you: <strong>“${q.text}”</strong>`, 'bot');
+    });
+    storyBoostBtn.addEventListener('click', () => {
+      const s = randomItem(data.stories);
+      addBubble(`<strong>${s.name} — ${s.title}</strong><br>${s.story}`, 'bot');
+    });
+    groundingBtn.addEventListener('click', () => sendMessage('I’m anxious and need grounding'));
+    localHelpBtn.addEventListener('click', () => sendMessage('Help me find support in Kent'));
+    document.querySelectorAll('[data-prompt]').forEach(btn => btn.addEventListener('click', () => sendMessage(btn.dataset.prompt)));
+    document.querySelectorAll('[data-mode]').forEach(btn => btn.addEventListener('click', () => {
+      const mode = btn.dataset.mode;
+      const prompts = {
+        calm: 'I’m anxious and need grounding',
+        hope: 'Give me a hopeful quote',
+        plan: 'Help me find therapy options',
+        local: 'Help me find support in Kent'
+      };
+      sendMessage(prompts[mode] || 'Cheer me up with something hopeful');
+    }));
+  </script>
+</body>
+</html>
     const chatLog = document.getElementById('chatLog');
     const userMessage = document.getElementById('userMessage');
     const sendBtn = document.getElementById('sendBtn');
@@ -567,6 +618,7 @@
     let conversation = [];
     let chatMode = 'balanced';
     let isSending = false;
+
     const memory = {
       name: '',
       area: '',
@@ -581,8 +633,8 @@
       return arr[Math.floor(Math.random() * arr.length)];
     }
 
-    function escapeHtml(str) {
-      return str
+    function escapeHtml(str = '') {
+      return String(str)
         .replace(/&/g, '&amp;')
         .replace(/</g, '&lt;')
         .replace(/>/g, '&gt;')
@@ -590,7 +642,7 @@
         .replace(/'/g, '&#39;');
     }
 
-    function addMessage(role, text, meta='') {
+    function addMessage(role, text, meta = '') {
       const row = document.createElement('div');
       row.className = `chat-row ${role === 'user' ? 'user-row' : 'bot-row'}`;
 
@@ -600,7 +652,7 @@
 
       const bubble = document.createElement('div');
       bubble.className = `bubble ${role === 'user' ? 'user' : 'bot'}`;
-      bubble.innerHTML = `${escapeHtml(text).replace(/\n/g, '<br>')}${meta ? `<span class="message-meta">${meta}</span>` : ''}`;
+      bubble.innerHTML = `${escapeHtml(text).replace(/\n/g, '<br>')}${meta ? `<span class="message-meta">${escapeHtml(meta)}</span>` : ''}`;
 
       if (role === 'user') {
         row.appendChild(bubble);
@@ -635,42 +687,45 @@
       chatLog.scrollTop = chatLog.scrollHeight;
     }
 
-    function replaceLastBotMessage(text, meta='') {
-      const thinking = document.getElementById('thinkingRow');
-      if (thinking) thinking.remove();
-      const rows = [...chatLog.querySelectorAll('.chat-row')].reverse();
-      const lastBotRow = rows.find(row => row.classList.contains('bot-row'));
-      if (!lastBotRow) return addMessage('bot', text, meta);
-      const bubble = lastBotRow.querySelector('.bubble');
-      if (!bubble) return addMessage('bot', text, meta);
-      bubble.className = 'bubble bot';
-      bubble.innerHTML = `${escapeHtml(text).replace(/\n/g, '<br>')}${meta ? `<span class="message-meta">${meta}</span>` : ''}`;
+    function replaceLastBotMessage(text, meta = '') {
+      const thinkingRow = document.getElementById('thinkingRow');
+      if (thinkingRow) {
+        const bubble = thinkingRow.querySelector('.bubble');
+        bubble.innerHTML = `${escapeHtml(text).replace(/\n/g, '<br>')}${meta ? `<span class="message-meta">${escapeHtml(meta)}</span>` : ''}`;
+        thinkingRow.id = '';
+      } else {
+        addMessage('bot', text, meta);
+        return;
+      }
+
       const lastConv = conversation[conversation.length - 1];
       if (lastConv && lastConv.role === 'bot') {
         lastConv.text = text;
       } else {
         conversation.push({ role: 'bot', text });
+        if (conversation.length > 30) conversation = conversation.slice(-30);
       }
       chatLog.scrollTop = chatLog.scrollHeight;
     }
 
     function findArea(message) {
-      const lower = message.toLowerCase();
-      return data.areas.find(area => lower.includes(area.name.toLowerCase()));
+      const lower = String(message || '').toLowerCase();
+      return data.areas.find(area => lower.includes(area.name.toLowerCase())) || null;
     }
 
     function updateQuoteSpotlight(q) {
+      if (!q) return;
       quoteSpotlight.textContent = `“${q.text}”`;
       quoteByline.textContent = q.by;
     }
 
     function buildStoryText() {
       const story = randomItem(realStories);
-      return `Here is a real UK recovery or peer-support source from the site: ${story.title} — ${story.story} Source: ${story.by} • ${story.link}`;
+      return `Here is a real UK recovery or peer-support source from the site: ${story.title} — ${story.story}\nSource: ${story.by} • ${story.link}`;
     }
 
     function detectThemes(message) {
-      const lower = message.toLowerCase();
+      const lower = String(message || '').toLowerCase();
       return {
         risk: /(suicide|kill myself|end my life|self-harm|self harm|overdose|can't keep myself safe|cannot keep myself safe|unsafe right now|immediate danger)/.test(lower),
         anxiety: /(anxious|anxiety|panic|overwhelmed|heart racing|shaky|spiral|spiralling|spiraling)/.test(lower),
@@ -691,21 +746,26 @@
     }
 
     function updateMemory(message, area, themes) {
-      const nameMatch = message.match(/\b(?:i\s*am|i'm|im|my name is)\s+([A-Z][a-z]{1,20})\b/);
-      if (nameMatch && !['Anxious','Depressed','Overwhelmed'].includes(nameMatch[1])) memory.name = nameMatch[1];
+      const nameMatch = String(message || '').match(/\b(?:i\s*am|i'm|im|my name is)\s+([A-Z][a-z]{1,20})\b/);
+      if (nameMatch && !['Anxious', 'Depressed', 'Overwhelmed'].includes(nameMatch[1])) memory.name = nameMatch[1];
       if (area) memory.area = area.name;
-      Object.entries(themes).forEach(([k,v]) => { if (v) memory.themes.add(k); });
-      const lower = message.toLowerCase();
+      Object.entries(themes).forEach(([k, v]) => { if (v) memory.themes.add(k); });
+      const lower = String(message || '').toLowerCase();
       if (/partner|wife|husband|mum|mom|dad|friend|daughter|son/.test(lower)) memory.relationship = message;
       if (/(hard|struggling|overwhelmed|panic|low|hopeless|exhausted|grief|lonely)/.test(lower)) {
-        memory.pains.push(message.trim());
+        memory.pains.push(String(message).trim());
         memory.pains = memory.pains.slice(-5);
       }
       if (/(managed|helped|better|got through|survived|i did|i managed to|small win)/.test(lower)) {
-        memory.wins.push(message.trim());
+        memory.wins.push(String(message).trim());
         memory.wins = memory.wins.slice(-3);
       }
-      memory.summary = [memory.name ? `Name: ${memory.name}.` : '', memory.area ? `Area: ${memory.area}.` : '', memory.themes.size ? `Themes: ${Array.from(memory.themes).join(', ')}.` : '', memory.wins.length ? `Recent strengths: ${memory.wins.join(' | ')}.` : ''].filter(Boolean).join(' ');
+      memory.summary = [
+        memory.name ? `Name: ${memory.name}.` : '',
+        memory.area ? `Area: ${memory.area}.` : '',
+        memory.themes.size ? `Themes: ${Array.from(memory.themes).join(', ')}.` : '',
+        memory.wins.length ? `Recent strengths: ${memory.wins.join(' | ')}.` : ''
+      ].filter(Boolean).join(' ');
     }
 
     async function callCompanionApi(message) {
@@ -713,13 +773,24 @@
       const themes = detectThemes(message);
       updateMemory(message, area, themes);
 
+      const messages = conversation.slice(-12).map(item => ({
+        role: item.role === 'bot' ? 'assistant' : item.role,
+        content: item.text
+      }));
+
       const res = await fetch(API_ENDPOINT, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          message,
+          messages,
           mode: chatMode,
-          area: area ? { name: area.name, nation: area.nation, urgent: area.urgent, localPathway: area.localPathway, tips: area.tips } : null,
+          area: area ? {
+            name: area.name,
+            nation: area.nation,
+            urgent: area.urgent,
+            localPathway: area.localPathway,
+            tips: area.tips
+          } : null,
           memory: {
             name: memory.name,
             area: memory.area,
@@ -729,10 +800,6 @@
             relationship: memory.relationship,
             summary: memory.summary
           },
-          history: conversation.slice(-12).map(item => ({
-            role: item.role === 'bot' ? 'assistant' : item.role,
-            text: item.text
-          })),
           resources: {
             urgent: {
               england: 'Call NHS 111 and select the mental health option for urgent support.',
@@ -747,32 +814,33 @@
         })
       });
 
+      const responseJson = await res.json().catch(() => ({}));
       if (!res.ok) {
-        let message = 'The companion could not reach the API just now.';
-        try {
-          const err = await res.json();
-          if (err && err.error) message = err.error;
-        } catch (_) {}
-        throw new Error(message);
+        throw new Error(responseJson?.error || 'The companion could not reach the API just now.');
       }
-      return res.json();
+      return responseJson;
     }
 
-    async function sendMessage(prefill='') {
+    async function sendMessage(prefill = '') {
       const message = (prefill || userMessage.value).trim();
       if (!message || isSending) return;
+
       isSending = true;
       sendBtn.disabled = true;
       addMessage('user', message);
       userMessage.value = '';
       chatStatus.textContent = 'Thinking…';
       addThinkingMessage();
+
       try {
         const payload = await callCompanionApi(message);
         replaceLastBotMessage(payload.reply || 'I’m here with you, but I could not form a full reply.');
         chatStatus.textContent = chatMode === 'balanced' ? 'Ready' : `Mode: ${chatMode}`;
       } catch (err) {
-        replaceLastBotMessage(`I’m still here, but the live companion could not connect right now. ${err.message || 'Please check your API endpoint and try again.'}\n\nIf this is urgent, use the crisis help section at the top of the page.`, 'Connection issue');
+        replaceLastBotMessage(
+          `I’m still here, but the live companion could not connect right now. ${err.message || 'Please check your API endpoint and try again.'}\n\nIf this is urgent, use the crisis help section at the top of the page.`,
+          'Connection issue'
+        );
         chatStatus.textContent = 'Connection issue';
       } finally {
         isSending = false;
@@ -794,20 +862,27 @@
       chatStatus.textContent = 'Ready';
     }
 
-
     sendBtn.addEventListener('click', () => sendMessage());
     clearBtn.addEventListener('click', resetChat);
-    userMessage.addEventListener('keydown', e => {
+    userMessage.addEventListener('keydown', (e) => {
       if (e.key === 'Enter' && !e.shiftKey) {
         e.preventDefault();
         sendMessage();
       }
     });
 
-    document.querySelectorAll('[data-prompt]').forEach(btn => btn.addEventListener('click', () => sendMessage(btn.dataset.prompt)));
-    document.querySelectorAll('[data-mode]').forEach(btn => btn.addEventListener('click', () => {
+    document.querySelectorAll('[data-prompt]').forEach((btn) => btn.addEventListener('click', () => sendMessage(btn.dataset.prompt)));
+    document.querySelectorAll('[data-mode]').forEach((btn) => btn.addEventListener('click', () => {
       chatMode = btn.dataset.mode;
-      const modeText = chatMode === 'calm' ? 'grounding and nervous-system settling' : chatMode === 'hope' ? 'hope and encouragement' : chatMode === 'reflect' ? 'deeper reflection and meaning-making' : chatMode === 'plan' ? 'practical planning' : 'UK and local signposting';
+      const modeText = chatMode === 'calm'
+        ? 'grounding and nervous-system settling'
+        : chatMode === 'hope'
+          ? 'hope and encouragement'
+          : chatMode === 'reflect'
+            ? 'deeper reflection and meaning-making'
+            : chatMode === 'plan'
+              ? 'practical planning'
+              : 'UK and local signposting';
       chatStatus.textContent = `Mode: ${chatMode}`;
       addMessage('bot', `Got it — I’ll lean more toward ${modeText} in my next reply.`, 'Mode updated');
     }));
@@ -817,13 +892,16 @@
       updateQuoteSpotlight(q);
       addMessage('bot', `Here’s a fresh line to hold onto: “${q.text}”`, q.by);
     });
+
     storyBoostBtn.addEventListener('click', () => addMessage('bot', buildStoryText(), 'Recovery story from site sources'));
     groundingBtn.addEventListener('click', () => sendMessage('I need a grounding reset right now. Please help me settle in the next two minutes.'));
     localHelpBtn.addEventListener('click', () => sendMessage('Help me find the smartest local support route in the UK for my area.'));
     patternsBtn.addEventListener('click', () => addMessage('bot', 'A few common thinking patterns that can make distress louder are catastrophising, all-or-nothing thinking, harsh “should” statements, mind-reading, and self-blame. If you paste the thought that is looping in your head, I can help you look at it more gently and realistically.', 'Thinking patterns tool'));
 
-    updateQuoteSpotlight(data.quotes[4] || data.quotes[0]);
+    const firstQuote = data.quotes && data.quotes.length ? data.quotes[0] : null;
+    if (firstQuote) updateQuoteSpotlight(firstQuote);
     resetChat();
+
   </script>
 </body>
 </html>
