@@ -1,0 +1,23 @@
+{
+  "name": "DailyGoal",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "Goal title"
+    },
+    "completed": {
+      "type": "boolean",
+      "default": false
+    },
+    "date": {
+      "type": "string",
+      "format": "date",
+      "description": "The date for this goal"
+    }
+  },
+  "required": [
+    "title",
+    "date"
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "name": "DailyTask",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "Task title"
+    },
+    "completed": {
+      "type": "boolean",
+      "default": false
+    },
+    "date": {
+      "type": "string",
+      "format": "date",
+      "description": "The date for this task"
+    }
+  },
+  "required": [
+    "title",
+    "date"
+  ]
+}

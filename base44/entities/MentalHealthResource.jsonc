@@ -1,0 +1,63 @@
+{
+  "name": "MentalHealthResource",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Name of the resource or organization"
+    },
+    "description": {
+      "type": "string",
+      "description": "Description of the resource"
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "crisis_support",
+        "therapy",
+        "self_help",
+        "community",
+        "helpline",
+        "online_tools",
+        "youth",
+        "substance_abuse"
+      ],
+      "description": "Category of the resource"
+    },
+    "website_url": {
+      "type": "string",
+      "description": "Website URL"
+    },
+    "phone_number": {
+      "type": "string",
+      "description": "Contact phone number"
+    },
+    "is_free": {
+      "type": "boolean",
+      "default": false
+    },
+    "availability": {
+      "type": "string",
+      "enum": [
+        "24_7",
+        "business_hours",
+        "varies"
+      ],
+      "description": "When the resource is available"
+    },
+    "location": {
+      "type": "string",
+      "description": "County, city or region this resource serves (e.g. 'Greater Manchester', 'Kent', 'Scotland'). Leave blank for national resources."
+    },
+    "is_national": {
+      "type": "boolean",
+      "default": true,
+      "description": "True if this is a UK-wide national resource"
+    }
+  },
+  "required": [
+    "name",
+    "description",
+    "category"
+  ]
+}

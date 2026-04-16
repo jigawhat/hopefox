@@ -1,0 +1,44 @@
+{
+  "name": "MentalHealthContact",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Contact's full name"
+    },
+    "role": {
+      "type": "string",
+      "description": "Their role or title (e.g. Therapist, Psychiatrist, GP)"
+    },
+    "phone": {
+      "type": "string",
+      "description": "Phone number"
+    },
+    "email": {
+      "type": "string",
+      "description": "Email address"
+    },
+    "organisation": {
+      "type": "string",
+      "description": "Organisation or practice name"
+    },
+    "notes": {
+      "type": "string",
+      "description": "Private notes about this contact"
+    },
+    "owner_email": {
+      "type": "string",
+      "description": "Email of the user who owns this contact"
+    }
+  },
+  "required": [
+    "name",
+    "owner_email"
+  ],
+  "rls": {
+    "read": "record.owner_email == user.email",
+    "create": "true",
+    "update": "record.owner_email == user.email",
+    "delete": "record.owner_email == user.email"
+  }
+}

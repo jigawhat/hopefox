@@ -1,0 +1,32 @@
+{
+  "name": "BiblicalQuote",
+  "type": "object",
+  "properties": {
+    "verse": {
+      "type": "string",
+      "description": "The Bible verse text"
+    },
+    "reference": {
+      "type": "string",
+      "description": "Book, chapter and verse reference (e.g. John 3:16)"
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "hope",
+        "strength",
+        "peace",
+        "love",
+        "courage",
+        "healing",
+        "faith",
+        "wisdom"
+      ],
+      "description": "Thematic category"
+    }
+  },
+  "required": [
+    "verse",
+    "reference"
+  ]
+}

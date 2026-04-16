@@ -1,0 +1,29 @@
+{
+  "name": "InspirationQuote",
+  "type": "object",
+  "properties": {
+    "quote": {
+      "type": "string",
+      "description": "The quote text"
+    },
+    "author": {
+      "type": "string",
+      "description": "Who said or wrote the quote"
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "hope",
+        "strength",
+        "healing",
+        "courage",
+        "self_care",
+        "resilience"
+      ],
+      "description": "Category of the quote"
+    }
+  },
+  "required": [
+    "quote"
+  ]
+}

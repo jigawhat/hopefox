@@ -1,0 +1,59 @@
+{
+  "name": "RecoveryStory",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "Title of the recovery story"
+    },
+    "author_name": {
+      "type": "string",
+      "description": "Name or pseudonym of the author"
+    },
+    "excerpt": {
+      "type": "string",
+      "description": "Short excerpt or summary"
+    },
+    "content": {
+      "type": "string",
+      "description": "Full story content"
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "anxiety",
+        "depression",
+        "ptsd",
+        "addiction",
+        "grief",
+        "eating_disorder",
+        "general"
+      ],
+      "description": "Category of the story"
+    },
+    "image_url": {
+      "type": "string",
+      "description": "Cover image URL"
+    },
+    "video_url": {
+      "type": "string",
+      "description": "YouTube or other video link related to the story"
+    },
+    "source_url": {
+      "type": "string",
+      "description": "Link to original source of the story"
+    },
+    "source_name": {
+      "type": "string",
+      "description": "Name of the source organisation (e.g. Mind, Rethink)"
+    },
+    "is_featured": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "required": [
+    "title",
+    "content"
+  ]
+}

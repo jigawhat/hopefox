@@ -1,0 +1,37 @@
+{
+  "name": "WeeklyPlan",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "Plan item title"
+    },
+    "day": {
+      "type": "string",
+      "enum": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+        "Sunday"
+      ],
+      "description": "Day of the week"
+    },
+    "completed": {
+      "type": "boolean",
+      "default": false
+    },
+    "week_start": {
+      "type": "string",
+      "format": "date",
+      "description": "The Monday of the week this plan belongs to"
+    }
+  },
+  "required": [
+    "title",
+    "day",
+    "week_start"
+  ]
+}
